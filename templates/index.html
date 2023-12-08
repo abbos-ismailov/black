@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+
+    <section class="banner">
+      <h1 class="site-name">Bek Olimjon</h1>
+      <h5>-balki foydasi tegar...</h5>
+    </section>
+  
+    <nav>
+      <ul>
+        <li>
+          <a href="#">BLOG</a>
+        </li>
+        <li>
+          <a href="#">PODCAST</a>
+        </li>
+        <li>
+          <a href="#">INTERVYULAR</a>
+        </li>
+        <li>
+          <a href="#">TAVSIYA</a>
+        </li>
+        <li>
+          <a href="#">KITOB</a>
+        </li>
+        <li>
+          <a href="#">HAQIMDA</a>
+        </li>
+      </ul>
+      <button>Search</button>
+    </nav>
+
+    <section class="blogs">
+        <div class="row" style="display: flex; flex-wrap: wrap; margin: 0 auto; width: 90%;">          
+            {% for i in blog_home %}
+            <div class="col" style="width: 32%; border: 1px solid; margin: 5px 0.5%;">
+                <h2> {{i.title}} </h2>
+                <img width="300px" src="{{i.img.url}}" alt="{{i.img.url}}">
+                <p>{{i.body}}...</p>
+                <button>Continue Reading => </button> <br>
+                <strong>{{i.create_at}}</strong>
+                <strong>{{i.vierw_count}}</strong>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+  </body>
+</html>
